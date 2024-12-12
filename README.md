@@ -1,47 +1,84 @@
-# Death Project
+# Проект "Death"
 
-## Overview
-This project is a Django-based web application. Below are the steps to set up and run the project.
+## Обзор
 
-## Requirements
-- Python 3.8 or newer
-- pip (Python package installer)
+Данный проект представляет собой веб-приложение, разработанное на фреймворке Django. Оно предназначено для выполнения различных задач, связанных с управлением определёнными процессами. Подробности реализации и функционала можно найти в описании приложения.
 
-## Setup Instructions
-1. Create a virtual environment:
-   ```bash
-   python -m venv venv
-   ```
+## Требования
 
-2. Activate the virtual environment:
-   - On Windows:
-     ```bash
-     venv\Scripts\activate
-     ```
-   - On Unix or MacOS:
-     ```bash
-     source venv/bin/activate
-     ```
+Для успешной работы проекта вам понадобятся:
+- Python версии 3.8 или новее
+- Менеджер пакетов pip
+- SQLite (по умолчанию используется встроенная база данных SQLite)
 
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+## Инструкции по установке
 
-4. Apply database migrations:
-   ```bash
-   python manage.py migrate
-   ```
+### 1. Создание виртуального окружения
 
-5. Run the development server:
-   ```bash
-   python manage.py runserver
-   ```
+Создайте виртуальное окружение для изоляции зависимостей проекта. Выполните следующую команду:
 
-## Notes
-- The project uses SQLite as the default database.
-- Ensure that Django is installed before attempting to run the server.
+```bash
+python -m venv venv
+```
 
-## Next Steps
-Inspect the application logic, verify that all routes are functional, and debug any issues encountered during runtime.
+### 2. Активация виртуального окружения
 
+Активируйте виртуальное окружение в зависимости от вашей операционной системы:
+
+- **Windows**:
+  ```bash
+  venv\Scripts\activate
+  ```
+- **Unix или MacOS**:
+  ```bash
+  source venv/bin/activate
+  ```
+
+### 3. Установка зависимостей
+
+После активации виртуального окружения установите все необходимые зависимости из файла `requirements.txt`:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Применение миграций базы данных
+
+Перед запуском приложения необходимо настроить базу данных. Выполните команду для применения миграций:
+
+```bash
+python manage.py migrate
+```
+
+### 5. Запуск сервера разработки
+
+Для запуска встроенного сервера разработки используйте следующую команду:
+
+```bash
+python manage.py runserver
+```
+
+После выполнения команды сервер будет доступен по адресу: `http://127.0.0.1:8000/`.
+
+## Примечания
+
+- В проекте по умолчанию используется SQLite как основная база данных.
+- Перед запуском убедитесь, что все зависимости установлены корректно.
+- Если при запуске возникают ошибки, проверьте конфигурационные файлы (например, `settings.py`).
+
+## Следующие шаги
+
+1. Проверьте функциональность приложения, убедитесь, что все маршруты работают корректно.
+2. Отладьте возможные ошибки, если они возникают во время выполнения программы.
+3. При необходимости добавьте новые функции или улучшите существующие.
+
+## Дополнительная информация
+
+Проект организован следующим образом:
+- **`death_app`**: Основное приложение с файлами для моделей, представлений, маршрутов, форм и статических ресурсов.
+- **`templates`**: Шаблоны HTML для отображения веб-страниц.
+- **`static`**: Содержит CSS, JavaScript и другие статические файлы.
+- **`db.sqlite3`**: Файл базы данных SQLite.
+- **`manage.py`**: Основной скрипт для управления проектом.
+
+Если у вас возникнут вопросы или потребуется помощь, обратитесь к документации Django или проверьте настройки проекта.
