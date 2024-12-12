@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block title %} Мои посещения {% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-5">Мои будущие похороны</h1>
+
+    <div class="text-center">
+        <a href="{% url 'book_visit' %}" class="btn btn-success">Записаться на новые похороны</a>
+    </div>
+
+    <div class="mt-5">
+
+        {% if html_df_data_visit == None or visits == None %}
+            <p class="text-center text-muted">У вас пока не было похорон у нас.</p>
+        {% else %}
+            <!--таблица визитов -->
+            <h3>Список моих похорон</h3>
+            <div class="table-responsive">
+                {{ html_df_data_visit|safe }}
+            </div>
+
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

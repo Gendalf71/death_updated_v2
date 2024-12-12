@@ -1,0 +1,43 @@
+{% extends 'index.html' %}
+
+{% block title %} Список похорон {% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Список похорон</h1>
+    <div class="row">
+        {% if service %}
+        {% for s in service %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ s.name }}</h5>
+                    <p class="card-text">
+                        Фио Усопшего: {{ s.name }}<br>
+                        Кладбище: {{ s.cemetry.cemetry }}<br>
+                        Участок: {{ s.cemetry.region }}<br>
+                        Дата {{ s.date }}<br>
+                        Люди {{ s.people }}<br>
+                    </p>
+                </div>
+
+                <div class="card-footer text-center">
+                    {% if user.is_staff %}
+                        <a href="{% url 'service_update' s.id %}" class="btn btn-primary btn-sm">Редактировать</a> <br>
+                        <a href="{% url 'service_delete' s.id %}" class="btn btn-danger btn-sm">Удалить</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <p class="text-center text-muted">Похороны отсутствуют</p>
+        {% endif %}
+    </div>
+    <div class="text-center mt-4">
+        {% if user.is_staff %}
+        <a href="{% url 'service_add' %}" class="btn btn-success">Добавить новые похороны</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
